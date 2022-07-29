@@ -1,6 +1,12 @@
 package com.doomedcat17.opentranslator.exception;
 
-public class TranslationException extends RuntimeException{
+/**
+ * Main and only exception to the library. Thrown when something goes wrong
+ *
+ * @author doomedcat17
+ * @since 1.0.0
+ */
+public class TranslationException extends Exception {
     public TranslationException(String message) {
         super(message);
     }

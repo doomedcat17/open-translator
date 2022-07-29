@@ -3,13 +3,37 @@ package com.doomedcat17.opentranslator.translation;
 import com.doomedcat17.opentranslator.language.Language;;
 import java.net.URI;
 
+/**
+ * A class containing the results of a translation request.
+ *
+ * @author doomedcat17
+ * @since 1.0.0
+ */
 public class Translation {
+    /**
+     * The language translated to.
+     */
     private String translatedText;
+    /**
+     * The original, untranslated text.
+     */
     private String sourceText;
+    /**
+     * The raw data received from Google's API.
+     */
     private String rawData;
+    /**
+     * The source text original language.
+     */
     private Language sourceLanguage;
+    /**
+     * The language translated to.
+     */
     private Language targetLanguage;
-    private URI url;
+    /**
+     * The uri that the translation request was made to.
+     */
+    private URI uri;
 
     public String getTranslatedText() {
         return translatedText;
@@ -35,12 +59,12 @@ public class Translation {
         this.rawData = rawData;
     }
 
-    public URI getUrl() {
-        return url;
+    public URI getUri() {
+        return uri;
     }
 
-    public void setUrl(URI url) {
-        this.url = url;
+    public void setUri(URI uri) {
+        this.uri = uri;
     }
 
     public Language getSourceLanguage() {

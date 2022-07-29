@@ -1,7 +1,12 @@
 package com.doomedcat17.opentranslator.language;
 
 import java.util.Arrays;
-
+/**
+ * All languages recognized by Google Translate.
+ *
+ * @author bush
+ * @since 1.0.0
+ */
 public enum Language {
     AUTO("auto"),
     AFRIKAANS("af"),

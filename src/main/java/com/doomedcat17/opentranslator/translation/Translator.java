@@ -11,6 +11,13 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
 
+/**
+ *
+ * Free Google Translator library for Java, based on therealbush's translator
+ * @author doomedcat17, bush, py-googletrans + contributors
+ * @since 1.0.0
+ *
+ */
 public class Translator {
 
     private final String GOOGLE_ENDPOINT_URL = "https://translate.googleapis.com/translate_a/single";
@@ -29,10 +36,37 @@ public class Translator {
         this.client = client;
     }
 
-    public Translation translate(String sourceText, Language targetLanguage) {
+    /**
+     * Translates the given string to the desired language.
+
+     * @param sourceText   The text to be translated.
+     * @param targetLanguage The language to translate [text] to. @see Language
+     * @param source The language of [text]. By default, this is [Language.AUTO].
+     *
+     * @return A [Translation] containing the translated text and other related data.
+     * @throws TranslationException If something goes wrong.
+     *
+     * @see Language
+     * @see Translation
+     */
+    public Translation translate(String sourceText, Language targetLanguage) throws TranslationException {
         return translate(sourceText, Language.AUTO, targetLanguage);
     }
-    public Translation translate(String sourceText, Language sourceLanguage, Language targetLanguage) {
+
+    /**
+     * Translates the given string to the desired language.
+
+     * @param sourceText   The text to be translated.
+     * @param sourceLanguage The language of [text].
+     * @param targetLanguage The language to translate [text] to. @see Language
+     *
+     * @return A [Translation] containing the translated text and other related data.
+     * @throws TranslationException If something goes wrong.
+     *
+     * @see Language
+     * @see Translation
+     */
+    public Translation translate(String sourceText, Language sourceLanguage, Language targetLanguage) throws TranslationException {
         try {
             URI uri = URI.create(attachParameters(sourceText, sourceLanguage, targetLanguage));
             HttpRequest httpRequest = HttpRequest.newBuilder()
@@ -50,7 +84,7 @@ public class Translator {
             translation.setSourceText(sourceText);
             translation.setRawData(response.body());
             translation.setTargetLanguage(targetLanguage);
-            translation.setUrl(uri);
+            translation.setUri(uri);
             return translation;
         }
         catch (TranslationException e) {

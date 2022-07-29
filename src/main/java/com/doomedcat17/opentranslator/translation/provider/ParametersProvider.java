@@ -4,8 +4,14 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * An interface containing all necessary parameters for library to work.
+ *
+ * @author doomedcat17
+ * @since 1.0.0
+ */
 public interface ParametersProvider {
-
+    // all necessary parameters to perform request
     Map<String, String> params =
             Map.ofEntries(
                     Map.entry("client", "gtx"),
@@ -17,6 +23,7 @@ public interface ParametersProvider {
                     Map.entry("tk", "blanchett_graves")
                     );
 
+    // some goofy arguments from https://github.com/ssut/py-googletrans
     List<String> goofyParameters = Arrays.asList("at", "bd", "ex", "ld", "md", "qca", "rw", "rm", "ss", "t");
 
 
