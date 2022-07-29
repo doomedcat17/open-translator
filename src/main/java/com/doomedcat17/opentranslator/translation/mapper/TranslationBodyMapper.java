@@ -16,6 +16,7 @@ public class TranslationBodyMapper {
         ArrayNode arrayNode = (ArrayNode) objectMapper.readTree(body);
         translation.setTranslatedText(mapContent((ArrayNode) arrayNode.get(0)));
         translation.setSourceLanguage(mapSourceLanguage(arrayNode));
+        translation.setRawData(body);
         return translation;
 
     }

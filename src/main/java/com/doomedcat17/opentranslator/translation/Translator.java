@@ -82,7 +82,6 @@ public class Translator {
             }
             Translation translation = translationBodyMapper.map(response.body());
             translation.setSourceText(sourceText);
-            translation.setRawData(response.body());
             translation.setTargetLanguage(targetLanguage);
             translation.setUri(uri);
             return translation;
